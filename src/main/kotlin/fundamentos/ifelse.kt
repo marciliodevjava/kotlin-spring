@@ -2,15 +2,15 @@ package org.example.fundamentos
 
 
 fun parOuImpar(numero: Int): String {
-    if (numero % 2 == 0) return "Par"
-    else return "Ímpar"
+    return if (numero % 2 == 0) return "Par"
+    else "Ímpar"
 }
 
 
 fun resultadoNota(nota: Float): String {
-    if (nota >= 6) return "Passou"
-    else if (nota >= 4 && nota < 6) return "Recuperação"
-    else return "Reprovado"
+    return if (nota >= 6) "Passou"
+    else if (nota >= 4 && nota < 6) "Recuperação"
+    else "Reprovado"
 }
 
 fun main() {
