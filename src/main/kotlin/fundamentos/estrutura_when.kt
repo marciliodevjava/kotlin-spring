@@ -4,6 +4,11 @@ fun main() {
     println(testawhen(16))
     testaWhenContador(1, 100, 1)
     println(comecaComUm("oi tudo bem?"))
+
+    when {
+        comecaComUm(5) -> println(5)
+        comecaComUm("Oi, estou bem") -> println("Oi estou bem")
+    }
 }
 
 fun testawhen(valor: Int): String {
@@ -26,7 +31,7 @@ fun testaWhenContador(valorIniti: Int, valorFinal: Int, pula: Int) {
 
 fun comecaComUm(x: Any): Boolean{
     return when(x){
-        is String -> x.startsWith("oi")
+        is String -> x.uppercase().startsWith("OI")
         else -> false
     }
 }
