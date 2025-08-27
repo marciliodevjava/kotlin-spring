@@ -1,5 +1,7 @@
 package fundamentos
 
+import java.util.Objects
+
 /**
  * lisOf() lista imutavel
  * mutableListOf() lista mutavel
@@ -9,7 +11,7 @@ package fundamentos
  */
 fun main() {
     var lista = listOf<Int>(1, 2, 3, 4, 5, 6, 7, 8, 9, 10,20,21,25,36,19)
-    var listaNull = listOf(1, "marcilio", null)
+    var listaNull = listOf<Any?>(1, "marcilio", null)
     var listVazia = mutableListOf<Any?>()
 
     println(lista)
@@ -39,10 +41,15 @@ fun main() {
     var listMap = mapOf("id" to 10, "nome" to "Marcilio")
     println(listMap)
 
-    var mutableMap = mutableMapOf<String, Any>("id" to 1, "nome" to "patrike")
+    var mutableMap = mutableMapOf<String, Any?>("id" to 1, "nome" to "patrike")
     println(mutableMap)
     mutableMap["idade"] =  30
     println(mutableMap)
 
-    println(mutableMap.filter { it.equals("patrike") })
+    println(mutableMap.filter { it.value=="patrike" })
+    println(mutableMap.map { mudarChave(it.key, it.value) })
+}
+
+fun mudarChave(key: String, value: Any?): Pair<String, Any?> {
+    return "nova_$key" to "$value"
 }
